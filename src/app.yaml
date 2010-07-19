@@ -1,0 +1,21 @@
+application: bgmfox-support
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+  
+- url: /javascripts
+  static_dir: javascripts
+
+- url: /write
+  script: bgmfox-support.py
+  login: required
+  
+- url: /search
+  script: bgmfox-support.py
+
+- url: /.*
+  script: bgmfox-support.py

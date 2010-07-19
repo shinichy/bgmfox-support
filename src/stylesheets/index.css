@@ -1,0 +1,29 @@
+.title {
+	color:#008080;
+	font-size:18pt;
+	font-weight:bold;
+}
+
+.message_title {
+	color:#DD0000;
+}
+
+.quotation {
+	color:#804000;
+}
+
+body {
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size:10pt;
+	background-color: #F0F0F0;
+}
+
+label.error {
+	color: red;
+}
+
+tr,td,th { font-size:10pt }
+
+#input_form {
+	margin-left: 30px;
+}
