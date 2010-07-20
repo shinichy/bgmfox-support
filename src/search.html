@@ -12,6 +12,7 @@
 		</script>
 	</head>
 	<body>
+		[<a href="/">掲示板に戻る</a>]
 		<p>キーワードをスペースで区切るとAND検索が行えます。</p>
 		<form id="search_form" action="/search" method="get">
 			検索キーワード<input name="keyword" type="text" size="38" class="required" />
@@ -21,14 +22,13 @@
 		{% for message in messages %}
 		<dl>
 			<dt>
-				<hr>
-				[<b>{{ message.key.id }}</b>] <b style="color:#DD0000">{{ message.title }}</b>
-				投稿者：<b>{{ message.name }}</b>
-				投稿日：{{ message.date|date:"Y/m/d(D) H:i" }} [<a href="./?id={{ message.key.id }}">返信</a>]
+				<hr>[{{ message.id }}] <span class="message_title">{{ message.title }}</span>
+				投稿者：{{ message.name }}
+				投稿日：{{ message.date|date:"Y/m/d(D) H:i" }} [<a href="./?id={{ message.id }}">返信</a>]
 				<br>
 				<br>
 				<dd>
-					{{ message.content|escape|linebreaks }}
+					{{ message.content|urlize|linebreaksbr }}
 				</dd>
 				<br>
 				<br>

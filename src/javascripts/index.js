@@ -8,3 +8,8 @@ function onSubmit() {
 	// check required fields
 	//return checkForm()
 }
+
+function clearForm() {
+	$("input[name='title']").val("")
+	$("textarea[name='content']").val("")
+}

@@ -12,6 +12,10 @@
 	color:#804000;
 }
 
+.keyword {
+	background-color: yellow;
+}
+
 body {
 	font-family: Verdana, Helvetica, sans-serif;
 	font-size:10pt;
@@ -26,4 +30,8 @@ tr,td,th { font-size:10pt }
 
 #input_form {
 	margin-left: 30px;
+}
+
+#error_msg {
+	color: red;
 }

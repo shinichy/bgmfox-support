@@ -12,7 +12,6 @@ handlers:
 
 - url: /write
   script: bgmfox-support.py
-  login: required
   
 - url: /search
   script: bgmfox-support.py

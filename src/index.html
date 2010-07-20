@@ -27,23 +27,31 @@
 			    $("#message_form").validate();
 			});
 		</script>
+		<title>BGM Fox サポート掲示板</title>
 	</head>
 	<body onload="onLoad()">
 		<div align=center>
 			<div class="title">BGM Fox サポート掲示板</div>
 			<hr width="90%">
-			[<a href="../index.html">トップに戻る</a>]
+			[<a href="http://suplik-net.appspot.com/bgmfox/">トップに戻る</a>]
 			[<a href="./search">記事検索</a>]
 			<hr width="90%">
+			<span id="error_msg">{{ error }}</span>
 		</div>
-		<div id="input_form">			<form id="message_form" action="/write" method="post" onsubmit="onSubmit()">				<table border=0>					<tr>						<td>							名前						</td>						<td colspan=3>							<input type=text name="name" size=28 tabindex=1 maxlength='30' />						</td>					</tr>					<tr>						<td>							タイトル						</td>						<td>							<input type=text name="title" size=36 value="{{ title }}" tabindex=2 maxlength='40' />						</td>						<td>							<input type="submit" value="書き込み" tabindex=4>						</td>						<td>							<input type="button" value="クリア" tabindex=5>						</td>					</tr>					<tr>						<td>							メッセージ						</td>						<td colspan=3>							<textarea name="content" class="required" rows="7" cols="56" wrap=soft tabindex=3 maxlength='1000'>{{ content }}</textarea>
-							<p>残り: <span class="charsLeft" ></span>文字</p>						</td>					</tr>				</table>			</form>		</div>
+		<div id="input_form">			<form id="message_form" action="/write" method="post" onsubmit="onSubmit()">				<table border=0>					<tr>						<td>							名前						</td>						<td colspan=3>							<input type=text name="name" size=28 tabindex=1 maxlength='30' />						</td>					</tr>					<tr>						<td>							タイトル						</td>						<td>							<input type=text name="title" size=36 value="{{ title }}" tabindex=2 maxlength='40' />						</td>						<td>							<input type="submit" value="書き込み" tabindex=4>						</td>						<td>							<input type="button" value="クリア" tabindex=5 onclick="clearForm()">						</td>					</tr>					<tr valign=middle>						<td align=center valign=middle>							メッセージ						</td>						<td colspan=3>							<textarea name="content" class="required" rows="7" cols="56" wrap=soft tabindex=3 maxlength='1000'>{{ content }}</textarea>						</td>					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<p>残り: <span class="charsLeft" ></span>文字</p>							
+						</td>
+					</tr>				</table>
+							</form>		</div>
 		{% for message in messages %}
 		<dl>
 			<dt>
-				<hr>[{{ message.key.id }}] <span class="message_title">{{ message.title }}</span>
+				<hr>[{{ message.id }}] <span class="message_title">{{ message.title }}</span>
 				投稿者：{{ message.name }}
-				投稿日：{{ message.date|date:"Y/m/d(D) H:i" }} [<a href="./?id={{ message.key.id }}">返信</a>]
+				投稿日：{{ message.date|date:"Y/m/d(D) H:i" }} [<a href="./?id={{ message.id }}">返信</a>]
 				<br>
 				<br>
 				<dd>
