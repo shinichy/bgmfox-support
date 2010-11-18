@@ -1,0 +1,3 @@
+syntax:regexp
+\.idea
+DS_Store
